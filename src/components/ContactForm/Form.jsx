@@ -58,32 +58,34 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className={styles.ContactForm}>
       <label className={styles.formLabel} htmlFor={nameInputId}>
         Name
+        <input
+          type="text"
+          name="name"
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
+          required
+          className={styles.formInput}
+          value={name}
+          onChange={handleChange}
+          id={nameInputId}
+        />
       </label>
-      <input
-        type="text"
-        name="name"
-        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
-        required
-        className={styles.formInput}
-        value={name}
-        onChange={handleChange}
-        id={nameInputId}
-      />
+
       <label className={styles.formLabel} htmlFor={phoneInputId}>
         Number
+        <input
+          type="tel"
+          name="number"
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
+          required
+          className={styles.formInput}
+          value={number}
+          onChange={handleChange}
+          id={phoneInputId}
+        />
       </label>
-      <input
-        type="tel"
-        name="number"
-        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-        title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
-        required
-        className={styles.formInput}
-        value={number}
-        onChange={handleChange}
-        id={phoneInputId}
-      />
+
       <button className={styles.addContactBtn} type="submit">
         <BsPersonPlusFill className={styles.addUserIcon} />
         Add contact

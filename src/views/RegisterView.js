@@ -1,17 +1,18 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../redux/auth';
+import styles from './Views.module.css';
 
-const styles = {
-  form: {
-    width: 320,
-  },
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
-  },
-};
+// const styles = {
+//   form: {
+//     width: 480,
+//   },
+//   label: {
+//     display: 'flex',
+//     flexDirection: 'column',
+//     marginBottom: 15,
+//   },
+// };
 
 export default function RegisterView() {
   const dispatch = useDispatch();
@@ -42,35 +43,49 @@ export default function RegisterView() {
 
   return (
     <div>
-      <h1>Страница регистрации</h1>
+      <h1 className={styles.regFormTitle}>Registration Page</h1>
 
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
-        <label style={styles.label}>
+      <form
+        onSubmit={handleSubmit}
+        className={styles.registrationForm}
+        autoComplete="off"
+      >
+        <label className={styles.regFormLabel}>
           Name
-          <input type="text" name="name" value={name} onChange={handleChange} />
+          <input
+            type="text"
+            name="name"
+            value={name}
+            onChange={handleChange}
+            className={styles.regFormInput}
+          />
         </label>
 
-        <label style={styles.label}>
+        <label className={styles.regFormLabel}>
           Email
           <input
             type="email"
             name="email"
             value={email}
             onChange={handleChange}
+            className={styles.regFormInput}
           />
         </label>
 
-        <label style={styles.label}>
+        <label className={styles.regFormLabel}>
           Password
           <input
             type="password"
             name="password"
             value={password}
             onChange={handleChange}
+            className={styles.regFormInput}
           />
         </label>
 
-        <button type="submit">Register</button>
+        <button type="submit" className={styles.regFormBtn}>
+          Submit
+        </button>
       </form>
     </div>
   );

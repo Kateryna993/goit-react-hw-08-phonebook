@@ -6,10 +6,12 @@ import { authSelectors } from '../redux/auth/index';
 
 const styles = {
   header: {
+    padding: '0 15px 0 15px',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    borderBottom: '1px solid #2A363B',
+    borderBottom: '2px solid brown',
+    fontSize: '20px',
   },
 };
 

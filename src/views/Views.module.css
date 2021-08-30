@@ -4,36 +4,139 @@
   text-align: center;
 }
 
+.textWrapper {
+  background-color: rgb(225, 236, 243);
+  padding: 4px;
+}
+
 .homeTitle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
   font-size: 32px;
   font-weight: 800;
-  color: rgb(223, 114, 75);
+  color: rgb(231, 89, 70);
 }
 
 .highlightedText {
   color: rgb(31, 111, 190);
 }
 
-.bgImage {
-  max-width: 900px;
-  height: auto;
+.contactsBookIcon {
+  margin-left: 2px;
 }
+
 /* contacts view */
 
 .mainTitle {
+  margin-top: 35px;
+  margin-bottom: 30px;
   color: rgb(31, 111, 190);
   font-size: 38px;
   font-weight: 900;
 }
 
+.contactsTitle {
+  margin-top: 65px;
+  margin-bottom: 20px;
+}
+
 .phonebookWrapper {
   max-width: 720px;
   margin: 20px auto;
-  border: 1px solid rgba(0, 170, 255, 0.489);
+  padding: 15px;
+  /* border: 1px solid rgb(0, 170, 255); */
+  box-shadow: 0px 5px 10px 2px rgb(7, 64, 93);
   border-radius: 10px;
-  background-color: rgba(65, 173, 177, 0.401);
+  background-color: antiquewhite;
   text-align: center;
+}
+
+/* register view + login view*/
+
+.regFormTitle,
+.logFormTitle {
+  text-align: center;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  color: rgb(21, 70, 95);
+  font-weight: 800;
+}
+
+.registrationForm,
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 520px;
+  height: 320px;
+  padding: 45px 15px 45px 15px;
+  /* border: 1px solid rgb(0, 170, 255); */
+  box-shadow: 0px 5px 10px 2px rgb(7, 64, 93);
+  border-radius: 10px;
+  background-color: rgb(215, 227, 250);
+  text-align: center;
+}
+
+.regFormLabel,
+.logFormLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* text-align: center; */
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 17px;
+}
+.regFormInput,
+.logFormInput {
+  margin-top: 15px;
+  width: 360px;
+  height: 30px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+.regFormLabel:focus-within,
+.logFormLabel:focus-within {
+  color: rgb(46, 103, 172);
+}
+
+.regFormInput:focus,
+.logFormInput:focus {
+  border: 2px solid rgb(46, 103, 172);
+  outline: transparent;
+}
+
+.regFormBtn,
+.logFormBtn {
+  margin-top: 35px;
+  padding: 4px;
+  margin-top: 15px;
+  width: 150px;
+  height: 30px;
+
+  text-align: center;
+  color: aliceblue;
+  cursor: pointer;
+  outline: none;
+  border: transparent;
+  border-radius: 3px;
+  background-color: rgb(92, 128, 172);
+}
+
+.regFormBtn:hover,
+.logFormBtn:hover {
+  background-color: rgb(46, 103, 172);
+}
+
+/* login view */
+
+.loginForm {
+  width: 480px;
+  height: 280px;
+  padding: 15px;
+  background-color: rgb(234, 250, 215);
 }

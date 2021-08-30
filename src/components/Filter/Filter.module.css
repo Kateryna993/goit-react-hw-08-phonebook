@@ -8,6 +8,7 @@
 .findContactTitle {
   display: flex;
   align-items: center;
+  margin-bottom: 15px;
 }
 
 .findContactIcon {
@@ -15,10 +16,11 @@
 }
 
 .filterInput {
-  width: 250px;
-  height: 25px;
-  border: 1px solid black;
-  font-size: 14px;
+  width: 360px;
+  height: 30px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  font-size: 16px;
   font-style: normal;
   margin-bottom: 15px;
 }

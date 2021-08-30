@@ -15,18 +15,26 @@
 }
 
 .formLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-size: 17px;
   font-weight: 600;
 }
 
 .formInput {
-  width: 250px;
-  height: 25px;
-  border: 1px solid black;
-  font-size: 14px;
+  margin-top: 15px;
+  width: 360px;
+  height: 30px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  font-size: 16px;
   font-style: normal;
 }
 
+.formLabel:focus-within {
+  color: rgb(74, 173, 235);
+}
 .formInput:focus {
   border: 2px solid rgb(74, 173, 235);
   outline: transparent;
@@ -35,15 +43,20 @@
 .addContactBtn {
   display: flex;
   align-items: flex-start;
+  justify-content: center;
   padding: 4px;
   margin-top: 15px;
+  width: 150px;
+
+  text-align: center;
+
   font-style: normal;
   font-weight: normal;
   font-size: 17px;
 
   cursor: pointer;
   outline: none;
-  border: 1px solid rgb(211, 199, 90);
+  border: 1px solid rgb(191, 178, 68);
   border-radius: 3px;
   background-color: rgb(245, 229, 200);
   box-shadow: 0 0 4px #000, inset 0 1px 4px -2px #fff;
