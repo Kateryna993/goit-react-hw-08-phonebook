@@ -1,0 +1,39 @@
+/* home view */
+
+.homePage {
+  text-align: center;
+}
+
+.homeTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 800;
+  color: rgb(223, 114, 75);
+}
+
+.highlightedText {
+  color: rgb(31, 111, 190);
+}
+
+.bgImage {
+  max-width: 900px;
+  height: auto;
+}
+/* contacts view */
+
+.mainTitle {
+  color: rgb(31, 111, 190);
+  font-size: 38px;
+  font-weight: 900;
+}
+
+.phonebookWrapper {
+  max-width: 720px;
+  margin: 20px auto;
+  border: 1px solid rgba(0, 170, 255, 0.489);
+  border-radius: 10px;
+  background-color: rgba(65, 173, 177, 0.401);
+  text-align: center;
+}
