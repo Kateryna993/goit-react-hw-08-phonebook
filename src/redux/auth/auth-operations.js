@@ -2,14 +2,6 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import * as authAPI from '../../services/auth-api';
 
-/* email: 'yuili@mail.com';
-password: 'fghj897'; - before pswd validation
- */
-// name: "Liam", email: "liammsg@gmail.com", password: "gjkljlk890" - before pswd validation
-
-// name: "Lussie", email: "luilee@gmail.com", password: "Zb789kjk"
-// {name: "Karen", email: "karen@gmail.com", password: "Zghjkh8"}
-// {name: "Karol", email: "dfkarl@yahoo.com", password: "Wfghj8907"}
 const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -21,7 +13,7 @@ const token = {
 
 const registerUser = createAsyncThunk('users/signup', async credentials => {
   try {
-    const { user } = await authAPI.registerUser(credentials);
+    const user = await authAPI.registerUser(credentials);
     token.set(user.token);
     return user;
   } catch (error) {
@@ -57,7 +49,7 @@ const fetchCurrentUser = createAsyncThunk(
     console.log(persistedToken);
     if (persistedToken === null) {
       console.log('No token, exit from fetchCurrentUser');
-      return;
+      return thunkAPI.rejectWithValue();
     }
 
     token.set(persistedToken);

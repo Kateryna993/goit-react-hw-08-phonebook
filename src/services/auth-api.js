@@ -1,5 +1,9 @@
 import axios from 'axios';
 
+// name: "Lussie", email: "luilee@gmail.com", password: "Zb789kjk"
+// {name: "Karen", email: "karen@gmail.com", password: "Zghjkh8"}
+// {name: "Karol", email: "dfkarl@yahoo.com", password: "Wfghj8907"}
+
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 export async function registerUser(credentials) {

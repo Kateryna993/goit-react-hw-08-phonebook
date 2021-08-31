@@ -3,9 +3,9 @@ import { FcContacts } from 'react-icons/fc';
 import { IconContext } from 'react-icons';
 // import ContactsIcon from '@material-ui/icons/Contacts';
 import styles from './Views.module.css';
-import bgImage from '../images/bgimg-homeview.jpg';
+import bgImage from '../images/bg-image.jpg';
 
-export const HomeView = () => {
+export default function HomeView() {
   return (
     <div className={styles.homePage}>
       <div className={styles.textWrapper}>
@@ -29,4 +29,4 @@ export const HomeView = () => {
       <img alt="" src={bgImage} className={styles.bgImage}></img>
     </div>
   );
-};
+}
