@@ -18,7 +18,7 @@
 .deleteBtn {
   display: flex;
   align-items: flex-start;
-  padding: 3px;
+  padding: 4px 6px 4px 4px;
 
   font-style: normal;
   font-weight: normal;

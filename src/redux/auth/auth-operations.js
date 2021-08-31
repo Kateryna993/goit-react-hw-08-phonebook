@@ -3,8 +3,13 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import * as authAPI from '../../services/auth-api';
 
 /* email: 'yuili@mail.com';
-password: 'fghj897';
+password: 'fghj897'; - before pswd validation
  */
+// name: "Liam", email: "liammsg@gmail.com", password: "gjkljlk890" - before pswd validation
+
+// name: "Lussie", email: "luilee@gmail.com", password: "Zb789kjk"
+// {name: "Karen", email: "karen@gmail.com", password: "Zghjkh8"}
+// {name: "Karol", email: "dfkarl@yahoo.com", password: "Wfghj8907"}
 const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -14,20 +19,17 @@ const token = {
   },
 };
 
-export const registerUser = createAsyncThunk(
-  'users/signup',
-  async credentials => {
-    try {
-      const user = await authAPI.registerUser(credentials);
-      token.set(user.token);
-      return user;
-    } catch (error) {
-      return error.message;
-    }
-  },
-);
+const registerUser = createAsyncThunk('users/signup', async credentials => {
+  try {
+    const { user } = await authAPI.registerUser(credentials);
+    token.set(user.token);
+    return user;
+  } catch (error) {
+    return error.message;
+  }
+});
 
-export const loginUser = createAsyncThunk('users/login', async credentials => {
+const loginUser = createAsyncThunk('users/login', async credentials => {
   try {
     const user = await authAPI.loginUser(credentials);
     token.set(user.token);
@@ -37,7 +39,7 @@ export const loginUser = createAsyncThunk('users/login', async credentials => {
   }
 });
 
-export const logoutUser = createAsyncThunk('users/logout', async () => {
+const logoutUser = createAsyncThunk('users/logout', async () => {
   try {
     await authAPI.logoutUser();
     token.unset();
@@ -46,24 +48,23 @@ export const logoutUser = createAsyncThunk('users/logout', async () => {
   }
 });
 
-export const fetchCurrentUser = createAsyncThunk(
+const fetchCurrentUser = createAsyncThunk(
   'users/current',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-    // console.log(state);
+    console.log(state);
     const persistedToken = state.auth.token;
-    // console.log(token);
+    console.log(persistedToken);
     if (persistedToken === null) {
-      // console.log('No token, exit from fetchCurrentUser');
-      return thunkAPI.rejectWithValue();
+      console.log('No token, exit from fetchCurrentUser');
+      return;
     }
 
     token.set(persistedToken);
-
     try {
-      const { data } = await axios.get('users/current');
-      console.log(data);
-      return data;
+      const currentUser = await authAPI.fetchCurrentUser();
+      // console.log(data);
+      return currentUser;
     } catch (error) {
       return error.message;
     }

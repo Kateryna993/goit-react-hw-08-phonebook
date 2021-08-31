@@ -51,6 +51,8 @@ export default function LoginView() {
           <input
             type="email"
             name="email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            title="Email should contain the '@' sign and 2-3 letter after '.' sign, as in example: user@mail.com"
             value={email}
             onChange={handleChange}
             className={styles.logFormInput}
@@ -62,6 +64,9 @@ export default function LoginView() {
           <input
             type="password"
             name="password"
+            minLength="6"
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+            title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number and use minimum 6 characters."
             value={password}
             onChange={handleChange}
             className={styles.logFormInput}

@@ -1,5 +1,5 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-import contactsReducer from '../contacts/contacts-reducer';
+import contactsReducer from './contacts/contacts-reducer';
 import {
   persistStore,
   persistReducer,
@@ -12,7 +12,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import logger from 'redux-logger';
-import { authReducer } from '../auth/index';
+import authSlice from './auth/auth-slice';
 // import thunk from 'redux-thunk';
 
 // const middleware = [...getDefaultMiddleware(), logger];
@@ -34,7 +34,7 @@ const authPersistConfig = {
 
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(authPersistConfig, authReducer),
+    auth: persistReducer(authPersistConfig, authSlice),
     contacts: contactsReducer,
   },
   middleware,

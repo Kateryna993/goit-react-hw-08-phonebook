@@ -1,16 +1,20 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import AppBar from './components/AppBar';
+import Container from './components/Container/Container';
 import ContactsView from './views/ContactsView';
 import { HomeView } from './views/HomeView';
 import RegisterView from './views/RegisterView';
 import LoginView from './views/LoginView';
-import Container from './components/Container/Container';
-import { authOperations } from './redux/auth/index';
+import { authOperations, authSelectors } from './redux/auth';
+import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute';
 
 export default function App() {
   const dispatch = useDispatch();
+
+  const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
@@ -20,22 +24,22 @@ export default function App() {
     <Container>
       <AppBar />
       <Switch>
-        {/* <Route exact path="/">
+        {/* <Route exact path="/" component={HomeView} /> */}
+        {/* <Route path="/register" component={RegisterView} /> */}
+        {/* <Route path="/login" component={LoginView} /> */}
+        {/* <Route path="/contacts" component={ContactsView} /> */}
+        <PublicRoute exact path="/">
           <HomeView />
-        </Route>
-        <Route path="/register">
+        </PublicRoute>
+        <PublicRoute path="/register" restricted>
           <RegisterView />
-        </Route>
-        <Route path="/login">
+        </PublicRoute>
+        <PublicRoute path="/login" redirectTo="/contacts" restricted>
           <LoginView />
-        </Route>
-        <Route path="/contacts">
+        </PublicRoute>
+        <PrivateRoute path="/contacts" redirectTo="/login">
           <ContactsView />
-        </Route> */}
-        <Route exact path="/" component={HomeView} />
-        <Route path="/register" component={RegisterView} />
-        <Route path="/login" component={LoginView} />
-        <Route path="/contacts" component={ContactsView} />
+        </PrivateRoute>
       </Switch>
     </Container>
   );

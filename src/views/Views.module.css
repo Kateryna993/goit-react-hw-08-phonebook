@@ -5,7 +5,7 @@
 }
 
 .textWrapper {
-  background-color: rgb(225, 236, 243);
+  /* background-color: rgba(237, 225, 243, 0.5); */
   padding: 4px;
 }
 
@@ -70,7 +70,7 @@
   text-align: center;
   justify-content: center;
   margin: 0 auto;
-  width: 520px;
+  max-width: 520px;
   height: 320px;
   padding: 45px 15px 45px 15px;
   /* border: 1px solid rgb(0, 170, 255); */
@@ -93,10 +93,11 @@
 .regFormInput,
 .logFormInput {
   margin-top: 15px;
-  width: 360px;
+  width: 320px;
   height: 30px;
   border: 1px solid lightgray;
   border-radius: 5px;
+  font-size: 17px;
 }
 
 .regFormLabel:focus-within,
@@ -112,13 +113,16 @@
 
 .regFormBtn,
 .logFormBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 35px;
-  padding: 4px;
+  padding: 8px;
   margin-top: 15px;
   width: 150px;
-  height: 30px;
+  height: 45px;
+  font-size: 16px;
 
-  text-align: center;
   color: aliceblue;
   cursor: pointer;
   outline: none;
@@ -135,8 +139,13 @@
 /* login view */
 
 .loginForm {
-  width: 480px;
+  max-width: 480px;
   height: 280px;
   padding: 15px;
   background-color: rgb(234, 250, 215);
+}
+
+.logFormBtn {
+  width: 130px;
+  height: 35px;
 }

@@ -4,6 +4,7 @@ axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 export async function registerUser(credentials) {
   const { data } = await axios.post('/users/signup', credentials);
+  console.log(data);
   return data;
 }
 
@@ -17,7 +18,7 @@ export async function logoutUser() {
   return data;
 }
 
-// export async function fetchCurrentUser() {
-//   const data = await axios.get('/users/current');
-//   return data;
-// }
+export async function fetchCurrentUser() {
+  const { data } = await axios.get('/users/current');
+  return data;
+}

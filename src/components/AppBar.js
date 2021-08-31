@@ -10,8 +10,9 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    borderBottom: '2px solid brown',
+    borderBottom: '3px solid brown',
     fontSize: '20px',
+    backgroundColor: 'rgba(243, 228, 225)',
   },
 };
 

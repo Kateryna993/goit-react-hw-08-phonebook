@@ -1,0 +1,33 @@
+.userMenuContainer {
+  display: flex;
+  align-items: center;
+}
+
+.userMenuAvatar {
+  margin-right: 4px;
+}
+
+.userMenuName {
+  font-weight: 700;
+  margin-right: 15px;
+}
+
+.userMenuBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 85px;
+  height: 35px;
+  padding: 3px 3px 3px 5px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #2a363b;
+  background-color: rgba(141, 166, 233, 0.4);
+  border-radius: 5px;
+  border: 1px solid gray;
+  cursor: pointer;
+}
+
+.userMenuIcon {
+  margin-left: 4px;
+}
